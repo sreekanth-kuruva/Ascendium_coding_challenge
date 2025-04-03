@@ -1,0 +1,34 @@
+def spiral_matrix(n):
+  c=[[0]*N for i in range(N)]
+  top =0
+  left =0
+  bottom = N-1
+  right = N-1
+  count=1
+  while(left<=right and top<=bottom):
+    for i in range(left,right+1):
+      c[top][i]=count
+      count+=1
+    top+=1
+    for i in range(top,bottom+1):
+      c[i][right]=count
+      count+=1
+    right-=1
+    for i in range(right,left-1,-1):
+      c[bottom][i]=count
+      count+=1
+    bottom-=1
+    for i in range(bottom,top-1,-1):
+      c[i][left]=count
+      count+=1
+    left+=1
+  return c
+  
+N=int(input("Enter N value of N*N square matrix : "))
+
+result=spiral_matrix(N)
+for x in result:
+  for y in x:
+    print(y,end=" ")
+  print('\n')
+
